@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+       // Car will not start moving from the start it will wait for first mouse click
         if (!gameStarted)
         {
             if(Input.GetMouseButtonDown(0))
@@ -35,6 +36,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameStarted=false;
+        gameStarted = false;
     }
 }

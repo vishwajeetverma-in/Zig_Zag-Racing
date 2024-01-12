@@ -6,6 +6,7 @@ public class CarController : MonoBehaviour
 {
     public float moveSpeed;
     bool movingLeft = true;
+    bool firstInput = true;
 
    
 
@@ -18,7 +19,6 @@ public class CarController : MonoBehaviour
             CheckInput();
         }
 
-      
     }
 
     void Move()
@@ -28,11 +28,17 @@ public class CarController : MonoBehaviour
 
     private void CheckInput()
     {
-
+        // ignore first mouse click
+        if (firstInput)
+        {
+            firstInput = false;
+            return; // this is the most important thing because after this next will not execute and ignoring first click is accompalished
+        }
         if (Input.GetMouseButtonDown(0))
         {
             ChangeDirection();
         }
+
     }
 
     void ChangeDirection()
